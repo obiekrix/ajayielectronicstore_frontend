@@ -1,0 +1,12 @@
+<div *ngIf="product.description" class="card" style="width: 15rem">
+  <img [src]="product.imageUrl" alt="{{product.description}}" class="card-img-top">
+  <div class="card-body">
+    <h4 class="card-title">{{product.description}}</h4>
+    <h6 class="card-title">{{(product.features!="" ? "&lt;" : "") + product.features + (product.features!="" ? "&gt;" : "")}}</h6>
+    <p class="card-text" *ngIf="showCostPrice">{{product.costPrice | currency : 'Cost Price: &#x20a6;': "code"}}</p>
+    <p class="card-text">{{product.sellingPrice | currency : (showCostPrice ? "Seling Price: " : "Price: ") + "&#x20a6;" : "code"}}</p>
+  </div>
+  <div class="card-footer">
+      <button (click)="addToCart(product)" *ngIf="showActions" class="btn btn-primary btn-block">Add to Cart</button>
+  </div>
+</div>
