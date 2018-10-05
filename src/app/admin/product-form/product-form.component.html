@@ -2,10 +2,8 @@
   <div class="col-md-6">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
       <div class="form-group">
-        <mat-form-field class="example-full-width">
-            <input matInput #description="ngModel" [(ngModel)]="productModel.description" placeholder="Description" name="description" id="description" required>
-          </mat-form-field><br/>
-        <!-- <input #description="ngModel" [(ngModel)]="productModel.description" name="description" id="description" type="text" class="form-control" required> -->
+        <label for="description">Description</label>
+        <input #description="ngModel" [(ngModel)]="productModel.description" name="description" id="description" type="text" class="form-control" required>
         <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
           Description is required.
         </div>
